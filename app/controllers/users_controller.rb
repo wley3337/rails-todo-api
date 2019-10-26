@@ -20,7 +20,9 @@ class UsersController < ApplicationController
         end
     end 
 
-
+    def show 
+        render json: { success: true, user: @current_user.serialize }
+    end 
 
     private 
 
