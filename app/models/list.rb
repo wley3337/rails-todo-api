@@ -4,6 +4,6 @@ class List < ApplicationRecord
 
 
     def serialize 
-        {heading: self.heading, toDos: self.to_dos.map{ |td| td.serialize }}
+        {id: self.id, heading: self.heading, toDos: self.to_dos.map{ |td| td.serialize }}
     end 
 end
