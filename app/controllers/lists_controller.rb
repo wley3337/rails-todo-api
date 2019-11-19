@@ -9,9 +9,23 @@ class ListsController < ApplicationController
         end
     end 
 
+    def destroy 
+        list_to_delete = List.find(delete_list_params[:id])
+        return_list = list_to_delete.serialize
+        if list_to_delete.destroy
+            render json: { success: true, list: return_list }
+        else 
+            render json: { success: false, errors: { messages: list_to_delete.errors} }
+        end
+    end 
+
     private 
 
     def list_params
         params.require(:list).permit(:heading)
     end
+
+    def delete_list_params
+        params.require(:list).permit(:id)
+    end 
 end
