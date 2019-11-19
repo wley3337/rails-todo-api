@@ -10,7 +10,7 @@ class ToDosController < ApplicationController
         if new_to_do.save 
             render json: { success: true , toDo: new_to_do.serialize }
         else 
-            render json: { success: false, messages: new_to_do.erorrs.full_messages }
+            render json: { success: false, messages: new_to_do.errors.full_messages }
         end
     end 
 

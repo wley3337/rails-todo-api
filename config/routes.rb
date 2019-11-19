@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   post "/login", to: "users#login"
   post "/create-user", to: "users#create"
-  get "/user", to: "users#show"
+  get "/users/show", to: "users#show"
   resources :lists, only: [:create, :destroy]
   resources :to_dos, only: [:create, :destroy]
 
